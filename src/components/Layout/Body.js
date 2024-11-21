@@ -1,44 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Body.css';
 import Sidebar from './Sidebar';
 import Nav from './Nav';
-import PodcastOptions from './PodcastOptions';
-import FileUpload from './FileUpload';
-import FilesTable from './FilesTable';
+import FileManager from './FileManager';
+import { useLocation } from 'react-router-dom';
+import PodcastOptions from './PodcastOptions'
+import TranscriptEditor from './TranscriptEditor';
 
 const LayoutBody = () => {
-  const [fileData, setFileData] = useState([
-    {
-      no: 1,
-      name: 'THE SIDEPOD S2 EPISODE 15',
-      uploadDate: '25 Oct 23 | 09:04',
-    },
-    {
-      no: 2,
-      name: 'THE SIDEPOD S2 EPISODE 17',
-      uploadDate: '27 Oct 23 | 11:08',
-    },
-  ]);
-
-  const [showFilesTable, setShowFilesTable] = useState(false);
-
-  const handleUpload = (newFile) => {
-    const updatedData = [...fileData, { no: fileData.length + 1, ...newFile }];
-    setFileData(updatedData);
-    setShowFilesTable(true); // Switch to the table after uploading
-  };
+  const location = useLocation();
+  console.log(location, "location");
 
   return (
     <div className='app'>
       <Sidebar />
       <main className='body-main'>
-        <Nav />
-        <PodcastOptions />
-        {showFilesTable ? (
-          <FilesTable fileData={fileData} />
-        ) : (
-          <FileUpload onUpload={handleUpload} />
-        )}
+        <Nav projectName={location?.state?.projectName} />
+        <PodcastOptions/>
+        <FileManager ProjectId={location?.state?._id} />
       </main>
     </div>
   );

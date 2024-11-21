@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';  // Ensure you have this import
 const Home = ({}) => {
     const navigate = useNavigate();  // Initialize navigate hook
 
-
     const [showModal, setShowModal] = useState(false);
     const [project, setProject] = useState(null);
   

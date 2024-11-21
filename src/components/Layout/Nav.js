@@ -2,11 +2,11 @@
 import React from 'react';
 import './Nav.css';
 
-const Nav = () => {
+const Nav = ({projectName}) => {
   return (
     <header className='header'>
       <span className='breadcrumbs'>
-        Home Page / Sample Project / Add Your Podcast
+        Home Page / {projectName} / Add Your Podcast
       </span>
     </header>
   );

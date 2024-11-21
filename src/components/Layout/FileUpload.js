@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FileUpload.css';
 import UploadModal from '../../components/Modals/UploadModal';
 
-const FileUpload = ({ onUpload }) => {
+const FileUpload = ({ onUpload,ProjectId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -16,6 +16,7 @@ const FileUpload = ({ onUpload }) => {
       <button onClick={openModal}>Select File</button>
       {isModalOpen && (
         <UploadModal
+        ProjectId={ProjectId}
           onClose={closeModal}
           onUpload={(newFile) => {
             onUpload(newFile); // Pass data to parent component
