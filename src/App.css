@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.create-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #211935;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-btn:hover {
+  background-color: #51167a;
+}
